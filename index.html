@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XRzone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://wallpaper.forfun.com/fetch/48/48682322c3297f87da933b9280f42c70.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgb(10, 9, 9);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .container h2 {
+            margin-bottom: 1rem;
+            color: #f3f3f3;
+        }
+        .input-group {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            border-color: #007bff;
+        }
+        .input-group label {
+            position: absolute;
+            top: -0.9rem;
+            left: 0rem;
+            background: #251e1e00;
+            padding: 0 0.25rem;
+            color: #ffffff;
+            font-size: 0.7rem;
+            transition: all 0.3s;
+        }
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: -1.25rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #007bff;
+        }
+        .btn {
+            background: #007bff;
+            border: none;
+            color: #fff;
+            padding: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .link {
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .form-container {
+            display: none;
+        }
+        .form-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container active" id="login-form">
+            <h2>Login</h2>
+            <form>
+                <div class="input-group">
+                    <input type="text" id="login-username" placeholder=" " required>
+                    <label for="login-username">Nome de usuário</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" placeholder=" " required>
+                    <label for="login-password">Senha</label>
+                </div>
+                <button type="submit" class="btn">Entrar</button> 
+                <a href="#" class="link" onclick="showForm('register-form')">Não tem uma conta? Registre-se</a>
+            </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-container" id="register-form">
+            <h2>Registro</h2>
+            <form>
+                <div class="input-group">
+                    <input type="text" id="register-username" placeholder=" " required>
+                    <label for="register-username">Nome de usuário</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="register-email" placeholder=" " required>
+                    <label for="register-email">E-mail</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="register-password" placeholder=" " required>
+                    <label for="register-password">Senha</label>
+                </div>
+                <button type="submit" class="btn">Registrar</button>
+                <a href="#" class="link" onclick="showForm('login-form')">Já tem uma conta? Faça login</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            document.querySelectorAll('.form-container').forEach(form => {
+                form.classList.remove('active');
+            });
+            document.getElementById(formId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
